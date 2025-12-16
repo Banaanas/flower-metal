@@ -1,9 +1,10 @@
-import { fetchGoogleSheet } from "@/lib/api/fetch-google-sheet";
+import { FlowerMetalView } from "@/components/table/flower-metal-view";
+import { fetchGoogleSheets } from "@/lib/api/fetch-sheets";
 
 const HomePage = async () => {
-  const googleSheetData = await fetchGoogleSheet();
+  const items = await fetchGoogleSheets();
 
-  return <div>hola</div>;
+  return <FlowerMetalView items={items} />;
 };
 
 export default HomePage;
