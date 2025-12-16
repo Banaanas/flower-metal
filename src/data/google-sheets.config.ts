@@ -5,18 +5,19 @@ export const SHEETS = {
   blackMetal: {
     title: "Black Metal",
     gid: "1141938115",
-    slug: "black-metal",
+    category: "black-metal",
   },
   otherGenres: {
     title: "Other Genres",
     gid: "846668971",
-    slug: "other-genres",
+    category: "other-genres",
   },
   recordLabels: {
     title: "Record Labels",
     gid: "867923480",
-    slug: "labels",
+    category: "record-labels",
   },
 } as const;
 
 export type SheetKey = keyof typeof SHEETS;
+export type SheetCategory = (typeof SHEETS)[SheetKey]["category"];
