@@ -1,0 +1,20 @@
+import { ReactNode } from "react";
+
+import { Header } from "@/components/layout/header";
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { AppProviders } from "@/lib/providers/app-providers";
+import { globalMaxWidth } from "@/styles/common-style";
+
+export const BaseLayout = ({ children }: { children: ReactNode }) => {
+  return (
+    <AppProviders>
+      <MaxWidthWrapper
+        maxWidth={globalMaxWidth}
+        className="flex flex-col gap-y-4 p-2 sm:py-8"
+      >
+        <Header />
+        <main className="w-full grow flex justify-center">{children}</main>
+      </MaxWidthWrapper>
+    </AppProviders>
+  );
+};

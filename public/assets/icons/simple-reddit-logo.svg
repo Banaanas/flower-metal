@@ -1,0 +1,24 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Cercle de fond -->
+    <circle cx="100" cy="100" r="95" fill="#FF4500" opacity="0.9"/>
+
+    <!-- Forme simplifiée de "Reddit alien" minimaliste -->
+    <circle cx="100" cy="100" r="45" fill="#FFFFFF"/>
+
+    <!-- Yeux minimalistes -->
+    <circle cx="85" cy="95" r="8" fill="#FF4500"/>
+    <circle cx="115" cy="95" r="8" fill="#FF4500"/>
+
+    <!-- Sourire simple -->
+    <path d="M 80 115 Q 100 125 120 115"
+          stroke="#FF4500"
+          stroke-width="4"
+          fill="none"
+          stroke-linecap="round"/>
+
+    <!-- Antenne minimaliste -->
+    <line x1="100" y1="55" x2="100" y2="40" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="100" cy="37" r="5" fill="#FFFFFF"/>
+
+
+</svg>
