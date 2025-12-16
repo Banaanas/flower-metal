@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Header } from "@/components/layout/header";
+import { Header } from "@/components/layout/header/header";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { AppProviders } from "@/lib/providers/app-providers";
 import { globalMaxWidth } from "@/styles/common-style";
