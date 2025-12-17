@@ -124,7 +124,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border outline-ring/50 font-sans;
@@ -133,6 +132,6 @@
     @apply h-full;
   }
   body {
-    @apply text-foreground flex h-full flex-col bg-red-200;
+    @apply text-foreground flex h-full flex-col;
   }
 }
