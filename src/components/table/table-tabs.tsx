@@ -15,7 +15,11 @@ export const TableTabs = ({
   };
 
   return (
-    <Tabs value={value} onValueChange={handleValueChange} className="mb-8">
+    <Tabs
+      value={value}
+      onValueChange={handleValueChange}
+      className="flex flex-col gap-y-4"
+    >
       <TabsList className="grid w-full max-w-lg mx-auto grid-cols-4">
         {tabSheets.map(({ category, label }) => (
           <TabsTrigger key={category} value={category}>
