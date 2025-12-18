@@ -7,3 +7,6 @@
 - SEO
 - table header sticky
 - Cache component warning
+- responsive
+- dark and light modes
+- Info displayed when clicked on
