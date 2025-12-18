@@ -1,12 +1,17 @@
 import { ExternalLink } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import {
+  GOOGLE_SHEET_ID,
+  GOOGLE_SHEET_ROOT,
+  SHEETS,
+} from "@/data/google-sheets.config";
 
 const GoogleSheetsLink = () => {
   return (
     <Button variant="outline" size="sm" asChild>
       <a
-        href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID"
+        href={`${GOOGLE_SHEET_ROOT}/${GOOGLE_SHEET_ID}/pubhtml?pli=1#gid=${SHEETS.blackMetal.gid}`}
         target="_blank"
         rel="noopener noreferrer"
         className="gap-2"

@@ -1,5 +1,9 @@
+export const GOOGLE_SHEET_ROOT = "https://docs.google.com/spreadsheets/u/0/d/e";
+
 export const GOOGLE_SHEET_ID =
   "2PACX-1vSfnVZGsyxn5eEacXKJZk3-_ql3bQAkPqzdc8p3fCdxtPS9BtvNlj0yjskUQyy3eDYBL9yYTqbba_5q";
+
+export const GOOGLE_SHEET_CSV_ROOT = "https://docs.google.com/spreadsheets/d/e";
 
 export const SHEETS = {
   blackMetal: {

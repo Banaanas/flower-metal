@@ -2,7 +2,12 @@ import Papa from "papaparse";
 
 import { getByHeader } from "./helpers";
 
-import { GOOGLE_SHEET_ID, SHEETS, SheetKey } from "@/data/google-sheets.config";
+import {
+  GOOGLE_SHEET_CSV_ROOT,
+  GOOGLE_SHEET_ID,
+  SHEETS,
+  SheetKey,
+} from "@/data/google-sheets.config";
 import type { GoogleSheetItem } from "@/types/google-sheet";
 
 type RawRow = Record<string, string | number | boolean | null | undefined>;
@@ -12,7 +17,7 @@ export const fetchSingleSheet = async (
 ): Promise<GoogleSheetItem[]> => {
   const { gid, category } = SHEETS[sheetKey];
 
-  const url = `https://docs.google.com/spreadsheets/d/e/${GOOGLE_SHEET_ID}/pub?output=csv&gid=${gid}`;
+  const url = `${GOOGLE_SHEET_CSV_ROOT}/${GOOGLE_SHEET_ID}/pub?output=csv&gid=${gid}`;
 
   const response = await fetch(url, {
     next: { revalidate: 3600 },
