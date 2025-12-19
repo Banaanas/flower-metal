@@ -2,7 +2,6 @@
 
 import { ChevronDown } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   Collapsible,
@@ -11,7 +10,6 @@ import {
 } from "@/components/ui/collapsible";
 import {
   Table,
-  TableBody,
   TableCell,
   TableHead,
   TableHeader,
