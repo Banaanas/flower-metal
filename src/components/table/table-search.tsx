@@ -11,7 +11,7 @@ export const TableSearch = ({
   setSearchTerm,
 }: TableSearchProps) => {
   return (
-    <div className="w-full max-w-[260px]">
+    <div className="w-full max-w-[240px]">
       <Label htmlFor="search" className="sr-only">
         Search bands
       </Label>
@@ -23,7 +23,7 @@ export const TableSearch = ({
           placeholder="Search bands, labels, countries…"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="pl-10 h-10"
+          className="pl-10 h-8 placeholder:text-xs"
         />
       </div>
     </div>
