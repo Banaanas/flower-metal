@@ -22,7 +22,7 @@ export const SHEETS = {
     category: "record-labels",
   },
   all: {
-    label: "All",
+    label: "All Categories",
     gid: "",
     category: "all",
   },
