@@ -34,13 +34,13 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
               <TableHead className="w-[120px] py-4 font-semibold text-foreground/90">
                 Country
               </TableHead>
-              <TableHead className="w-[140px] py-4 font-semibold text-foreground/90">
+              <TableHead className="w-[140px] hidden sm:table-cell py-4 font-semibold text-foreground/90">
                 Category
               </TableHead>
-              <TableHead className="hidden lg:table-cell py-4 font-semibold text-foreground/90">
+              <TableHead className="hidden sm:table-cell py-4 font-semibold text-foreground/90">
                 Explanation
               </TableHead>
-              <TableHead className="w-[50px] lg:hidden py-4 font-semibold text-foreground/90">
+              <TableHead className="w-[50px] sm:hidden py-4 font-semibold text-foreground/90">
                 <span className="sr-only">Expand</span>
               </TableHead>
             </TableRow>
@@ -64,19 +64,19 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
                     <TableCell className="py-4 text-2xl">
                       {isFlagEmoji(country) ? country : "—"}
                     </TableCell>
-                    <TableCell className="py-4">
+                    <TableCell className="py-4 hidden sm:table-cell ">
                       <span className="inline-flex items-center rounded-md bg-accent/80 px-2.5 py-1 text-xs font-medium text-accent-foreground">
                         {getCategoryLabel(category)}
                       </span>
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell whitespace-normal break-words py-4 leading-relaxed text-foreground/90">
+                    <TableCell className="hidden sm:table-cell whitespace-normal break-words py-4 leading-relaxed text-foreground/90">
                       {hasExplanation ? (
                         explanation
                       ) : (
                         <span className="text-sm text-muted-foreground">—</span>
                       )}
                     </TableCell>
-                    <TableCell className="lg:hidden py-4 text-right">
+                    <TableCell className="sm:hidden py-4 text-right">
                       {hasExplanation && (
                         <CollapsibleTrigger asChild>
                           <Button
@@ -93,7 +93,7 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
                   </TableRow>
                   {hasExplanation && (
                     <CollapsibleContent asChild>
-                      <TableRow className="lg:hidden border-none bg-transparent">
+                      <TableRow className="sm:hidden border-none bg-transparent">
                         <TableCell
                           colSpan={4}
                           className="py-4 px-4 pt-0 whitespace-normal break-words"
