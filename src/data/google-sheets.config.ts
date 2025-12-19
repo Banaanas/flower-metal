@@ -30,3 +30,10 @@ export const SHEETS = {
 
 export type SheetKey = keyof typeof SHEETS;
 export type SheetCategory = (typeof SHEETS)[SheetKey]["category"];
+
+export const CATEGORY_FILTERS = [
+  SHEETS.blackMetal,
+  SHEETS.otherGenres,
+  SHEETS.recordLabels,
+  SHEETS.all,
+] as const;
