@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 
 import {
@@ -23,18 +23,26 @@ export const TableCategoryDropdown = ({
         <span>{selectedFilter?.label}</span>
         <ChevronDown className="h-4 w-4 opacity-50" />
       </DropdownMenuTrigger>
+
       <DropdownMenuContent
         align="start"
         className="w-[var(--radix-dropdown-menu-trigger-width)]"
       >
-        {CATEGORY_FILTERS.map((filter) => (
-          <DropdownMenuItem
-            key={filter.category}
-            onClick={() => onValueChange(filter.category)}
-          >
-            {filter.label}
-          </DropdownMenuItem>
-        ))}
+        {CATEGORY_FILTERS.map((filter) => {
+          const isSelected = filter.category === value;
+
+          return (
+            <DropdownMenuItem
+              key={filter.category}
+              onClick={() => onValueChange(filter.category)}
+              className="flex items-center justify-between"
+            >
+              <span>{filter.label}</span>
+
+              {isSelected && <Check className="h-4 w-4 opacity-70" />}
+            </DropdownMenuItem>
+          );
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );
