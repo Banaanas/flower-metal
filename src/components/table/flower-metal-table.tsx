@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/collapsible";
 import {
   Table,
+  TableBody,
   TableCell,
   TableHead,
   TableHeader,
@@ -44,21 +45,17 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
             </TableRow>
           </TableHeader>
 
-          {items.map(({ artist, country, category, explanation }, index) => {
-            const hasExplanation = explanation && explanation.trim() !== "";
+          <TableBody>
+            {items.map(({ artist, country, category, explanation }, index) => {
+              const hasExplanation = explanation && explanation.trim() !== "";
 
-            return (
-              <Collapsible key={`${category}-${index}`} asChild>
-                <tbody
-                  className={cn(
-                    "border-b border-border/30 last:border-0",
-                    index % 2 === 0 ? "bg-background" : "bg-muted/20"
-                  )}
-                >
+              return (
+                <Collapsible key={`${category}-${index}`} className="contents">
                   <CollapsibleTrigger asChild disabled={!hasExplanation}>
                     <TableRow
                       className={cn(
-                        "transition-colors border-none bg-transparent",
+                        "transition-colors border-b border-border/30",
+                        index % 2 === 0 ? "bg-background" : "bg-muted/20",
                         hasExplanation &&
                           "cursor-pointer sm:cursor-default sm:pointer-events-none hover:bg-muted/50"
                       )}
@@ -95,7 +92,12 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
                   </CollapsibleTrigger>
                   {hasExplanation && (
                     <CollapsibleContent asChild>
-                      <TableRow className="sm:hidden border-none bg-transparent">
+                      <TableRow
+                        className={cn(
+                          "sm:hidden border-b border-border/30",
+                          index % 2 === 0 ? "bg-background" : "bg-muted/20"
+                        )}
+                      >
                         <TableCell
                           colSpan={4}
                           className="py-4 px-4 pt-0 whitespace-normal break-words"
@@ -110,10 +112,10 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
                       </TableRow>
                     </CollapsibleContent>
                   )}
-                </tbody>
-              </Collapsible>
-            );
-          })}
+                </Collapsible>
+              );
+            })}
+          </TableBody>
         </Table>
 
         {items.length === 0 && (
