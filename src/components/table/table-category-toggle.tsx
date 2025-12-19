@@ -27,6 +27,8 @@ export const TableCategoryToggle = ({
         <ToggleGroupItem
           key={category}
           value={category}
+          // This way, unselect value (and empty results) is not possible
+          disabled={category === value}
           className="data-[state=on]:bg-accent/90 data-[state=on]:text-accent-foreground data-[state=on]:shadow-sm transition-all"
         >
           {label}
