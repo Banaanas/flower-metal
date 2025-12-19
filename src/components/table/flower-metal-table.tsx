@@ -2,13 +2,7 @@
 
 import { TableRowTrigger } from "@/components/table/table-row-trigger";
 import { Card } from "@/components/ui/card";
-import {
-  Table,
-  TableBody,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import type { GoogleSheetItem } from "@/types/google-sheet";
 
 export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
@@ -36,11 +30,15 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
             </TableRow>
           </TableHeader>
 
-          <TableBody>
-            {items.map((item, index) => {
-              return <TableRowTrigger {...item} key={index} index={index} />;
-            })}
-          </TableBody>
+          {items.map((item, index) => {
+            return (
+              <TableRowTrigger
+                key={index}
+                index={index}
+                {...item}
+              ></TableRowTrigger>
+            );
+          })}
         </Table>
 
         {items.length === 0 && (
@@ -59,9 +57,3 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
 interface FlowerMetalTableProps {
   items: GoogleSheetItem[];
 }
-
-const isFlagEmoji = (value: string | null | undefined): boolean => {
-  if (!value) return false;
-
-  return /^[\u{1F1E6}-\u{1F1FF}]{2}$/u.test(value);
-};
