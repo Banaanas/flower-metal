@@ -2,6 +2,11 @@
 
 import { Card } from "@/components/ui/card";
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
   Table,
   TableBody,
   TableCell,
@@ -31,40 +36,51 @@ export const FlowerMetalTable = ({ items }: FlowerMetalTableProps) => {
               <TableHead className="hidden py-4 md:table-cell font-semibold text-foreground/90">
                 Explanation
               </TableHead>
+              <TableHead className="hidden py-4 md:table-cell font-semibold text-foreground/90">
+                Explanation
+              </TableHead>
             </TableRow>
           </TableHeader>
 
           <TableBody>
-            {items.map((item, index) => (
-              <TableRow
-                key={`${item.category}-${index}`}
-                className={`transition-colors hover:bg-muted/50 border-b border-border/30 last:border-0 ${
-                  index % 2 === 0 ? "bg-background" : "bg-muted/20"
-                }`}
-              >
-                <TableCell className="font-medium whitespace-normal break-words max-w-[220px] py-4">
-                  {item.artist ?? "—"}
-                </TableCell>
+            {items.map(({ artist, country, category, explanation }, index) => {
+              const hasExplanation = explanation && explanation.trim() !== "";
 
-                <TableCell className="py-4 text-2xl">
-                  {isFlagEmoji(item.country) ? item.country : "—"}
-                </TableCell>
+              return (
+                <TableRow
+                  key={`${category}-${index}`}
+                  className={`transition-colors hover:bg-muted/50 border-b border-border/30 last:border-0 ${
+                    index % 2 === 0 ? "bg-background" : "bg-muted/20"
+                  }`}
+                >
+                  <TableCell className="font-medium whitespace-normal break-words max-w-[220px] py-4">
+                    {artist ?? "—"}
+                  </TableCell>
+                  <TableCell className="py-4 text-2xl">
+                    {isFlagEmoji(country) ? country : "—"}
+                  </TableCell>
+                  <TableCell className="py-4">
+                    <span className="inline-flex items-center rounded-md bg-accent/80 px-2.5 py-1 text-xs font-medium text-accent-foreground">
+                      {getCategoryLabel(category)}
+                    </span>
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell whitespace-normal break-words py-4 leading-relaxed text-foreground/90">
+                    {hasExplanation ? (
+                      explanation
+                    ) : (
+                      <span className="text-sm text-muted-foreground">—</span>
+                    )}
+                  </TableCell>
 
-                <TableCell className="py-4">
-                  <span className="inline-flex items-center rounded-md bg-accent/80 px-2.5 py-1 text-xs font-medium text-accent-foreground">
-                    {getCategoryLabel(item.category)}
-                  </span>
-                </TableCell>
-
-                <TableCell className="hidden md:table-cell whitespace-normal break-words py-4 leading-relaxed text-foreground/90">
-                  {item.explanation ? (
-                    item.explanation
-                  ) : (
-                    <span className="text-sm text-muted-foreground">—</span>
-                  )}
-                </TableCell>
-              </TableRow>
-            ))}
+                  <TableCell className="hidden md:table-cell whitespace-normal break-words py-4 leading-relaxed text-foreground/90">
+                    <Collapsible>
+                      <CollapsibleTrigger>Gino</CollapsibleTrigger>
+                      <CollapsibleContent>{explanation}</CollapsibleContent>
+                    </Collapsible>
+                  </TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </Table>
 
