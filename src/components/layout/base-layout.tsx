@@ -10,7 +10,7 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
     <AppProviders>
       <MaxWidthWrapper
         maxWidth={globalMaxWidth}
-        className="flex flex-col gap-y-4 p-2 sm:py-8"
+        className={`flex flex-col gap-y-4 p-2 sm:py-8 min-w-[320px]`}
       >
         <Header />
         <main className="w-full grow flex justify-center">{children}</main>

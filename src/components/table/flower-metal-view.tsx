@@ -38,7 +38,7 @@ export const FlowerMetalView = ({ items }: FlowerMetalView) => {
       </div>
 
       <MaxWidthWrapper
-        className="flex flex-col gap-y-1 items-end"
+        className="flex flex-col gap-y-2 items-center"
         maxWidth={tableMaxWidth}
       >
         <TableSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
