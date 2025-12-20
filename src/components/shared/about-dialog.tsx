@@ -14,7 +14,7 @@ export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl">About This Database</DialogTitle>
+          <DialogTitle className="text-2xl">About this Database</DialogTitle>
           <DialogDescription>
             Understanding the {appName} Database
           </DialogDescription>
