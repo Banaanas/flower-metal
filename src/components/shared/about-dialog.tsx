@@ -20,7 +20,7 @@ export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-        <DialogHeader className="flex flex-col gap-y-0">
+        <DialogHeader className="flex flex-col gap-y-0 items-center">
           <DialogTitle className="text-2xl">About Flower Metal</DialogTitle>
           <DialogDescription className="italic">
             Metal with flowers. Not hate.
