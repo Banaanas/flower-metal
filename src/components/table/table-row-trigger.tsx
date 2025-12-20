@@ -7,8 +7,15 @@ import {
 } from "@/components/ui/collapsible";
 import { TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
+import { GoogleSheetItem } from "@/types/google-sheet";
 import { getCategoryLabel } from "@/utils/get-category-label";
 
+/**
+ * Note: We use TableBody as the direct child of Collapsible (with asChild) because:
+ * 1. Collapsible only accepts a single child.
+ * 2. HTML <table> elements do not allow <div> as a direct child.
+ * 3. TableBody can contain multiple TableRows (Trigger and Content), keeping it HTML compliant.
+ */
 export const TableRowTrigger = ({
   artist,
   country,
@@ -113,11 +120,7 @@ const RowCollapsibleContent = ({
   );
 };
 
-interface TableRowTriggerProps {
-  artist: string | null;
-  country: string | null;
-  category: string;
-  explanation: string | null;
+interface TableRowTriggerProps extends GoogleSheetItem {
   index: number;
 }
 
