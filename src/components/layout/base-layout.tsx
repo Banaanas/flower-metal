@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 
+import { Footer } from "@/components/layout/header/footer";
 import { Header } from "@/components/layout/header/header";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { AppProviders } from "@/lib/providers/app-providers";
@@ -13,7 +14,8 @@ export const BaseLayout = ({ children }: { children: ReactNode }) => {
         className={`flex flex-col gap-y-4 p-2 sm:py-8 min-w-[320px]`}
       >
         <Header />
-        <main className="w-full grow flex justify-center">{children}</main>
+        <main className="w-full flex justify-center">{children}</main>
+        <Footer />
       </MaxWidthWrapper>
     </AppProviders>
   );
