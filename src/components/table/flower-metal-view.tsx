@@ -20,7 +20,7 @@ export const FlowerMetalView = ({ items }: FlowerMetalView) => {
   const filteredItems = filterItems(items, selectedCategory, searchTerm);
 
   return (
-    <div className="flex flex-col items-center gap-y-8 pt-8">
+    <div className="flex flex-col items-center gap-y-8 pt-8 w-full">
       <div className="flex flex-col gap-y-2">
         <div className="max-w-48 sm:hidden">
           <TableCategoryDropdown
