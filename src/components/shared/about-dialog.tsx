@@ -1,5 +1,3 @@
-import { ExternalLink } from "lucide-react";
-
 import {
   Dialog,
   DialogContent,
@@ -7,62 +5,81 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { appName } from "@/data/app-data";
+import {
+  GOOGLE_SHEET_ID,
+  GOOGLE_SHEET_ROOT,
+  SHEETS,
+} from "@/data/google-sheets.config";
+
+interface AboutDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
 
 export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">About this Database</DialogTitle>
-          <DialogDescription>
-            Understanding the {appName} Database
+        <DialogHeader className="flex flex-col gap-y-0">
+          <DialogTitle className="text-2xl">About Flower Metal</DialogTitle>
+          <DialogDescription className="italic">
+            Metal with flowers. Not hate.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6 mt-4">
+        <div className="flex flex-col gap-y-4">
           <div>
-            <h4 className="font-semibold text-base text-foreground mb-2">
-              Purpose
+            <h4 className="font-semibold text-base text-foreground">
+              What this is
             </h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The {appName} Database tracks metal bands with documented or
-              alleged connections to Nazi ideology (NSBM), white supremacy, and
-              related extremist movements. This resource helps fans, venues, and
-              labels make informed decisions about which artists to support.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-base text-foreground mb-2">
-              How to Contribute
-            </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              If you have documented evidence of bands that should be included
-              or updates to existing entries, please contribute via the{" "}
+              Flower Metal is a visual exploration of a community-made dataset
+              that circulates online, listing metal bands and their perceived
+              proximity to far-right, Nazi, or explicitly anti-fascist
+              positions.
               <a
-                href="https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID"
+                href={`${GOOGLE_SHEET_ROOT}/${GOOGLE_SHEET_ID}/pubhtml?pli=1#gid=${SHEETS.blackMetal.gid}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline inline-flex items-center gap-1"
+                className="inline-flex items-center gap-2 underline"
               >
-                Google Sheet
-                <ExternalLink className="h-3 w-3" />
+                The original Sheet is available online.
               </a>
-              . All submissions should include verifiable sources.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold text-base text-foreground mb-2">
-              Disclaimer
+            <h4 className="font-semibold text-base text-foreground">
+              What this is not
             </h4>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              This is a community-maintained resource for informational
-              purposes. Evidence quality varies and allegations should be
-              evaluated critically. This database is not a call for censorship
-              but a tool for accountability and informed choice. Some bands have
-              disavowed past associations - context matters.
+              This site does not create, verify, investigate, or update the
+              underlying data. It does not claim authority, accuracy, or
+              completeness, and it is not a verdict on any band or individual.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-base text-foreground">
+              About the data
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              The original dataset is community-curated and reflects a mix of
+              sources, interpretations, and historical context. Methodology is
+              not publicly documented, and classifications may be disputed,
+              outdated, or nuanced.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-base text-foreground">
+              Why this exists
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Metal has always been about expression, freedom, and resistance.
+              This project exists to make existing information easier to explore
+              — so people can form their own opinions and make informed personal
+              choices.
             </p>
           </div>
         </div>
@@ -70,8 +87,3 @@ export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
     </Dialog>
   );
 };
-
-interface AboutDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
