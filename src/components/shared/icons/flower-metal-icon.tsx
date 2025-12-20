@@ -1,12 +1,12 @@
-export const FlowerMetalIcon = () => {
+import { cn } from "@/lib/utils";
+
+export const FlowerMetalIcon = ({ className }: { className?: string }) => {
   return (
     <svg
-      width="64"
-      height="64"
       viewBox="0 0 64 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="flower-metal-icon"
+      className={cn("h-full w-auto", className)}
     >
       {/* Flower petals */}
       <circle

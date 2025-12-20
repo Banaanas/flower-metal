@@ -14,9 +14,10 @@ export const Header = () => {
         <Link
           href={appNavLinks.home.href}
           className="flex items-center gap-x-3"
+          style={{ height: "clamp(32px, 10vw, 64px)" }}
         >
           <FlowerMetalIcon />
-          <FlowerMetalBanner size={96} />
+          <FlowerMetalBanner />
         </Link>
         <div className="flex items-center gap-x-3">
           <AboutDialogButton />

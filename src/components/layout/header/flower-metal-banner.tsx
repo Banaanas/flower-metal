@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 
 export const FlowerMetalBanner = ({
-  size = 280,
   flowerColor = "#FFFFFF",
   metalColor = "#FF69B4",
   strokeColor,
@@ -9,10 +8,9 @@ export const FlowerMetalBanner = ({
 }: FlowerMetalBannerProps) => {
   return (
     <svg
-      width={size}
       viewBox="10 10 155 82"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("block", className)}
+      className={cn("h-full w-auto", className)}
       preserveAspectRatio="xMinYMin meet"
     >
       {/* FLOWER */}
