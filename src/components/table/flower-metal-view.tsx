@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 import { FlowerMetalTable } from "@/components/table/flower-metal-table";
 import { TableCategoryDropdown } from "@/components/table/table-category-dropdown";
 import { TableCategoryToggle } from "@/components/table/table-category-toggle";
 import { TableSearch } from "@/components/table/table-search";
 import { SHEETS, SheetCategory } from "@/data/google-sheets.config";
+import { tableMaxWidth } from "@/styles/common-style";
 import { GoogleSheetItem } from "@/types/google-sheet";
 
 export const FlowerMetalView = ({ items }: FlowerMetalView) => {
@@ -35,10 +37,13 @@ export const FlowerMetalView = ({ items }: FlowerMetalView) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-y-1 items-end">
+      <MaxWidthWrapper
+        className="flex flex-col gap-y-1 items-end"
+        maxWidth={tableMaxWidth}
+      >
         <TableSearch searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <FlowerMetalTable items={filteredItems} />
-      </div>
+      </MaxWidthWrapper>
     </div>
   );
 };
