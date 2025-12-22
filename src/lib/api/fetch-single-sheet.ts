@@ -19,22 +19,39 @@ export const fetchSingleSheet = async (
 
   const url = `${GOOGLE_SHEET_CSV_ROOT}/${GOOGLE_SHEET_ID}/pub?output=csv&gid=${gid}`;
 
-  const response = await fetch(url, {
-    next: { revalidate: 3600 },
-  });
+  try {
+    const response = await fetch(url, {
+      next: { revalidate: 3600 },
+    });
 
-  const csvText = await response.text();
+    console.log(response.ok);
 
-  const parsed = Papa.parse<RawRow>(csvText, {
-    header: true,
-    skipEmptyLines: true,
-    dynamicTyping: true,
-  });
+    if (!response.ok) {
+      console.error(`Failed to fetch sheet ${sheetKey}: ${response.status}`);
+      return [];
+    }
 
-  return parsed.data.map((row) => ({
-    artist: getByHeader(row, [/artist/i, /band/i, /label/i]),
-    country: getByHeader(row, [/country/i]),
-    explanation: getByHeader(row, [/explanation/i, /notes?/i, /comment/i]),
-    category,
-  }));
+    const csvText = await response.text();
+
+    if (!csvText) {
+      console.error(`Empty response for sheet ${sheetKey}`);
+      return [];
+    }
+
+    const parsed = Papa.parse<RawRow>(csvText, {
+      header: true,
+      skipEmptyLines: true,
+      dynamicTyping: true,
+    });
+
+    return parsed.data.map((row) => ({
+      artist: getByHeader(row, [/artist/i, /band/i, /label/i]),
+      country: getByHeader(row, [/country/i]),
+      explanation: getByHeader(row, [/explanation/i, /notes?/i, /comment/i]),
+      category,
+    }));
+  } catch (error) {
+    console.error(`Error fetching sheet ${sheetKey}:`, error);
+    return [];
+  }
 };

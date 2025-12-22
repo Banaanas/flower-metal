@@ -28,11 +28,3 @@ export const Header = () => {
     </header>
   );
 };
-
-const HeaderText = () => {
-  return (
-    <p className="text-xs text-muted-foreground">
-      Metal with flowers. Not hate.
-    </p>
-  );
-};
