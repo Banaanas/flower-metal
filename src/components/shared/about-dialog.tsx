@@ -12,11 +12,6 @@ import {
   SHEETS,
 } from "@/data/google-sheets.config";
 
-interface AboutDialogProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-}
-
 export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -86,3 +81,8 @@ export const AboutDialog = ({ open, onOpenChange }: AboutDialogProps) => {
     </Dialog>
   );
 };
+
+interface AboutDialogProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
