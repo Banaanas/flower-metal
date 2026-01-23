@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
-const MaxWidthWrapper = ({
+import { cn } from "@/lib/utils";
+
+export const MaxWidthWrapper = ({
   maxWidth,
   className = "",
   autoMargin = true,
@@ -8,15 +10,13 @@ const MaxWidthWrapper = ({
 }: MaxWidthWrapperProps) => {
   return (
     <div
-      className={`${autoMargin ? "mx-auto" : ""} size-full ${className}`}
+      className={cn(autoMargin && "mx-auto", className)}
       style={{ maxWidth: maxWidth }}
     >
       {children}
     </div>
   );
 };
-
-export default MaxWidthWrapper;
 
 interface MaxWidthWrapperProps {
   maxWidth: string;

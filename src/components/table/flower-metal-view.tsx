@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { MaxWidthWrapper } from "@/components/shared/max-width-wrapper";
 import { FlowerMetalTable } from "@/components/table/flower-metal-table";
 import { TableCategoryDropdown } from "@/components/table/table-category-dropdown";
 import { TableCategoryToggle } from "@/components/table/table-category-toggle";
