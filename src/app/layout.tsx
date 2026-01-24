@@ -1,11 +1,12 @@
-import { Metadata } from "next";
 import { ReactNode } from "react";
 
 import "../styles/globals.css";
 
 import { BaseLayout } from "@/components/layout/base-layout";
-import { appName, appSlogan } from "@/data/app-data";
+import { siteMetadata } from "@/data/metadata";
 import { roboto, robotoMono } from "@/lib/fonts";
+
+export const metadata = siteMetadata;
 
 export default function RootLayout({
   children,
@@ -20,21 +21,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-export const metadata: Metadata = {
-  title: {
-    default: appName,
-    template: `%s | ${appName}`,
-  },
-  description: appSlogan,
-  openGraph: {
-    title: appName,
-    description: appSlogan,
-    type: "website",
-  },
-  twitter: {
-    card: "summary",
-    title: appName,
-    description: appSlogan,
-  },
-};
